@@ -1,0 +1,22 @@
+{
+  "name": "jefersonvrocha.com.br",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "9.8.6",
+    "next": "9.5.3",
+    "postcss-import": "12.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tailwindcss": "^1.9.6"
+  }
+}
