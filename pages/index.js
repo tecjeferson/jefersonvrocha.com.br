@@ -7,7 +7,7 @@ const Index = () =>{
                 <img className="absolute z-0 bg-contain bg-center " src='/main-img3.png' />
      
                 <div className="relative z-40 flex items-stretch">
-                    <div className="flex-1  text-center text-white px-4 py-2 m-12 text-2xl">
+                    <div className="flex-1  text-center text-white px-4 py-2 md:m-48 xl:m-24 sm:text-2xl lg:text-3xl">
                         <h1>Jeferson Rocha</h1>
                         <h2>Developer | DevOps | Coordinator</h2>
                     </div>

@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 const Header = () => {
     return (
-      <div>
+      <div className="space-y-64">
         <navbar className=""> 
           <div className="absolute z-50 container font-extrabold">
-            <div className="text-white py-4 px-12">
+            <div className="text-sm md:text-2xl lg:text-2xl text-white py-4 px-12">
               <Link href="/"><a className="px-3">HOME</a></Link>
               <Link href="https://jefersonvrocha.com.br/blog/"><a className="px-3">BLOG</a></Link>
               <Link href="https://www.linkedin.com/in/jefersonvrocha/"><a className="px-3">LINKEDIN</a></Link>            

@@ -1,0 +1,24 @@
+.navitem{
+    width: 100%;
+}
+
+.navbarItems{
+    background: linear-gradient(90deg, rgb(3, 173, 165)0.5%, rgb(25, 183, 194)0.2%);
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size:1.2rem;
+}
+
+.navbar-logo {
+    /* color:#fff; */
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.fa-react{
+    margin-left: 0.5rem;
+    font-size:1.6rem ;
+}
