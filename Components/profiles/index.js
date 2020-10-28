@@ -1,15 +1,16 @@
 import React from 'react';
+import styles from './styles.module.css'
 
 const Profile = () => {
     return(
-        <div className="lg:container mx-auto">
-            <div className="m-64 ">
+        <div className="mx-auto" id={styles.paragrafContainer}>
+            <div className='m-12' >
 
             </div>
-            <h1 className="w-full sm:text-3xl lg:text-5xl text-center py-8">Quem sou eu ?</h1>
-                <div className=" shadow-2xl  rounded-lg py-8">
+            <h1 className=" text-3xl lg:text-5xl text-center ">SOBRE</h1>
+                <div className="mx-4 shadow-2xl  rounded-lg ">
 
-                    <p className="sm:text-xl lg:text-3xl mx-10 p-8">
+                    <p className="text-lg lg:text-3xl mx-4 p-4" id={styles.paragraf}>
                         Há mais de 14 anos gerando valor em empresas nacionais e internacionais, focado não apenas na tecnologia, 
                         mas no negócio. Mindset de transformar Tecnologia da Informação
                         em soluções para o Business com uma linguagem simples e objetiva.
