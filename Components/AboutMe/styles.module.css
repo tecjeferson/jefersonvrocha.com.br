@@ -1,0 +1,24 @@
+
+
+/* Extra Large (xl) */
+@media (min-width: 1200px) {
+    #containerBox{
+        width:100%;
+        display: flex;
+    
+    }
+    
+    #boxesSkills{
+        
+        align-content: center;
+      
+    
+    }
+
+    #boxes{
+        width:400px;
+    }
+
+
+
+}

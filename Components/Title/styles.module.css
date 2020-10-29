@@ -1,0 +1,14 @@
+
+
+/* Extra Large (xl) */
+@media (min-width: 1200px) {
+    #title{
+        margin-top:250px;
+        margin-bottom: 300px;
+        font-size:48px;
+  
+    }
+
+
+
+}

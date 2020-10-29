@@ -1,11 +1,13 @@
 import React from 'react'
-import Header from './Header'
-import Title from '../Components/title'
-import Profile from '../Components/profiles'
-import AboutMe from '../Components/aboutMe'
+import Header from '../Components/Header'
+import Title from '../Components/Title'
+import Profile from '../Components/Profiles'
+import AboutMe from '../Components/AboutMe'
 import Navbar from '../Components/Navbar/Navbar'
+import Form from '../Components/Form'
+import Footer from '../Components/Footer'
 import '../css/styles.css'
-import '../Components/Navbar/Navbar.css'
+
 
 
 const MyApp = ({ Component, pageProps }) => {
@@ -13,10 +15,12 @@ const MyApp = ({ Component, pageProps }) => {
         <div>
             <Header />
             <Title />
-            {/* <Navbar /> */}
+  
             <Component {...pageProps} />
             <Profile />
             <AboutMe />
+            <Form />
+            <Footer />
         </div>
     )
 }

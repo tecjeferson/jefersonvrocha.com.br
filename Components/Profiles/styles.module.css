@@ -1,0 +1,17 @@
+
+
+/* Extra Large (xl) */
+@media (min-width: 1200px) {
+    #paragraf{
+        padding: 50px; 
+    }
+
+    #paragrafContainer{
+        margin-right: 10%;
+        margin-left: 10%;
+        margin-bottom: 300px;
+    }
+
+
+
+}
