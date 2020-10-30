@@ -22,7 +22,7 @@ const Title = () => {
               </h1>
 
               <button className="shadow-2xl bg-indigo-800 hover:bg-purple-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 mt-8 rounded-lg">
-                <a href="https://api.whatsapp.com/send?l=pt&phone=5511930861318">
+                <a href="#anchor">
                   CONTATO
                 </a>
               </button>
