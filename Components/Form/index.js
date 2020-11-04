@@ -1,27 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as emailjs from "emailjs-com";
+//falta habilitar mensagem de enviado no form
+function useFormik({ initialValues, validate }) {
+  const [touched, setTouched] = useState({})
+  const [errors, setErrors] = useState({})
+  const [values, setValues] = useState(initialValues)
+  const [sendMailJS, setEmailJS] = useState(false)
 
-function useFormik({ initialValues }) {
-  const [values, setValues] = useState(initialValues);
 
+  useEffect(()=>{
+    validateValues(values)
+  }, [values])
+  
   function handleChange(event) {
     const fieldName = event.target.getAttribute("name");
     const value = event.target.value;
-  
     setValues({
       ...values,
       [fieldName]: value,
     });
+    setEmailJS({
+      ...values,
+      [fieldName]: value
+    });
+  }
+
+  function handleBlur(event){
+    const fieldName = event.target.getAttribute('name')
+    setTouched({
+      ...touched,
+        [fieldName]:true
+    })
+  }
+
+  function validateValues(values){
+    setErrors(validate(values))
   }
 
   return {
     values,
+    errors,
+    touched,
+    handleBlur,
+    setErrors,
     handleChange,
   };
 }
 
 function Form() {
-  const formik = useFormik({
+  
+    
+
+    const formik = useFormik({
     initialValues: {
       userEmail: "",
       userName: "",
@@ -29,32 +59,34 @@ function Form() {
       userCompany: "",
       userMessage: ""
     },
+    validate: function (values ){
+      const errors = {};
+     
+    
+      if(values.userName.length < 3){
+        errors.userName = 'Entre com um nome válido'
+      }
+      if(!values.userEmail.includes('@')){
+        errors.userEmail ='Entre com email válido'
+      }
+      if(values.userMessage.length < 3){
+        errors.userMessage = 'Entre com uma mensagem válida.'
+      }
+      else{
+        errors.setEmailJs = true
+        
+      }
+      return errors
+    
+    }
   });
-
-  function sendEmail(e) {
-    e.preventDefault();
-
+  function sendEmail() {                          
     emailjs.sendForm(
-      "service_voo3hln",
-      "template_wkf5sw2",
-        e.target, "user_bcmFJDm9NMVe0zwXOVJhZ")
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-  }
-
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    emailjs.sendForm(
-      "service_voo3hln",
+      "service_1kctaau",
       "template_wkf5sw2",
       "contact_form",
-      "user_bcmFJDm9NMVe0zwXOVJhZ"
-    );
-  };
+      "user_bcmFJDm9NMVe0zwXOVJhZ")
+  }
   return (
     
     <div className="mb-12 md:mt-64 lg:mt-64 md:mx-6 lg:mx-64 " id="anchor">
@@ -66,7 +98,18 @@ function Form() {
         </div>
         <div className="w-4/5 p-2 bg-teal-500 text-center">
           <form
-            onSubmit={sendEmail}
+            onSubmit={
+              (event) =>{
+                event.preventDefault();
+                
+                { formik.errors.setEmailJs &&
+                   sendEmail(),
+                  alert('Email enviado com sucesso!')
+                               
+                }
+              }
+
+            }
             className="contact_form  p-2 text-left"
             id="contact_form"
             >
@@ -84,7 +127,7 @@ function Form() {
                   id="userName"
                   onChange={formik.handleChange}
                   value={formik.values.userName}
-                  />
+                  />{formik.errors.userName && <span className="formField_error text-red-700">{formik.errors.userName}</span>}
               </div>
             </div>
             <div className="mb-6">
@@ -103,6 +146,7 @@ function Form() {
                   onChange={formik.handleChange}
                   value={formik.values.userEmail}
                   />
+                  {formik.errors.userEmail && <span className="formField_error text-red-700">{formik.errors.userEmail}</span>}
               </div>
             </div>
 
@@ -153,12 +197,16 @@ function Form() {
                 <textarea
                   className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                   type="number"
-                  placeholder="Empresa"
+                  placeholder="Mensagem"
                   name="userMessage"
                   id="userMessage"
                   onChange={formik.handleChange}
                   value={formik.values.userMessage}
                   />
+                  {formik.errors.userMessage && <span className="formField_error text-red-700">{formik.errors.userMessage}</span>}
+                  { formik.setFormik &&
+                   <h3 className="bg-green-200  rounded text-center">Mensagem enviada com sucesso. Obrigado!</h3>                              
+                }
               </div>
             </div>
 

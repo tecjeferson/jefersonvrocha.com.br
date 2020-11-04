@@ -8,7 +8,7 @@ const Title = () => {
         <div className="container">
           <img
             className="absolute  z-0 bg-contain bg-center"
-            src="/main-img3.png"
+            src="/main-img.png"
           />
 
           <div className="relative z-40 flex items-stretch ">
